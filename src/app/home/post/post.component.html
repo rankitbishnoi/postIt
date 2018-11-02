@@ -1,0 +1,11 @@
+<div class="card-body" *ngIf="post">
+  <h5 class="card-title">{{post.title}}</h5>
+  <p class="card-text">{{post.body}}</p>
+  <a class="card-link">Author: {{post.userId | getAuthorName}}</a>
+  <br />
+  <a (click)="delete()" class="btn btn-danger m-4">DELETE</a>
+  <a [routerLink]="['/', 'editPost', post.id]" class="btn btn-success m-4">EDIT</a>
+</div>
+<div class="card-body" *ngIf="!post">
+  <h5 class="card-title">This post is not available</h5>
+</div>

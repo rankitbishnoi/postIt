@@ -1,0 +1,39 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/']">
+    <h3>PostIt</h3>
+  </a>
+</nav>
+<div class="container-fluid">
+  <div class="d-block d-lg-none" (click)="showList = true" *ngIf="!showList">
+    <h1><span class="badge badge-secondary">Show List</span></h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 d-lg-block postListContainer" [ngClass]="{'d-none': !showList}">
+      <div class="card">
+        <div class="card-header">
+          Posts
+        </div>
+        <ul class="list-group list-group-flush overflowAuto postList">
+          <li class="list-group-item" *ngFor="let post of postList" routerLinkActive="active" [routerLink]="['/', 'post', post.id]"
+            (click)="showList = false;">{{post.id}}.
+            {{post.title}}</li>
+          <li class="list-group-item" *ngIf="postList.length < 1">No Post Available</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="card text-center d-lg-block" [ngClass]="{'d-none': showList}">
+        <div class="card-header">
+          <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-secondary" routerLinkActive="active" [routerLink]="['/', 'createPost']">Create</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

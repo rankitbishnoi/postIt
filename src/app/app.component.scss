@@ -1,0 +1,32 @@
+.mainContainer {
+  background-color: #fbf3f0;
+  position: absolute;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.loaderContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.loaderY {
+  position: fixed;
+  left: calc(50% - 35px);
+  top: calc(50% - 35px);
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  animation: playloader 1.96s infinite;
+}
+
+.displayNone {
+  display: none;
+}
+
+@keyframes playloader {
+  to {
+    transform: rotateY(1turn);
+  }
+}

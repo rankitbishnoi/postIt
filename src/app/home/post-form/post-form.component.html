@@ -1,0 +1,33 @@
+<div class="card-body">
+  <h5 class="card-title">Post</h5>
+  <form #f="ngForm">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="title">Title*</span>
+      </div>
+      <input type="text" class="form-control" name="title" [(ngModel)]="title" id="titleInput" aria-describedby="titleInput">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="postBodyLabel">Body*</span>
+      </div>
+      <textarea type="text" class="form-control" name="body" [(ngModel)]="body" id="postBody" rows="8" aria-describedby="postBody"></textarea>
+    </div>
+    <div class="btn-group dropup">
+      <button type="button" class="btn btn-secondary">
+        Author*: {{authorName}}
+      </button>
+      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false" (click)="openDropdown()">
+        <span class="sr-only">Toggle Dropright</span>
+      </button>
+      <div class="" [ngClass]="{'dropdown-menu': true, 'show': openDropdownMenu}">
+        <button class="dropdown-item" type="button" *ngFor="let user of userList" (click)="author = user; authorName = user.name; openDropdown()">{{user.name}}</button>
+      </div>
+    </div>
+    <br />
+    <div class="alert alert-danger mt-4" role="alert" *ngIf="showErrorMsg">Please fill all the required fields.</div>
+    <br *ngIf="showErrorMsg" />
+    <a (click)="createPost(f)" class="btn btn-primary mt-4">Post</a>
+  </form>
+</div>

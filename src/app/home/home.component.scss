@@ -1,0 +1,17 @@
+.container-fluid {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  max-height: 100vh;
+}
+
+.overflowAuto {
+  overflow: auto;
+}
+
+.postListContainer {
+  height: calc(100vh - 4em - 70px);
+}
+
+.postList {
+  max-height: calc(100vh - 10em);
+}

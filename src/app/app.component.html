@@ -1,0 +1,8 @@
+<div [hidden]="!loading" class="loaderContainer">
+  <div class="loaderY">
+    Loading...
+  </div>
+</div>
+<div class="mainContainer" [hidden]="loading">
+  <router-outlet></router-outlet>
+</div>
